@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="catera.itp.sti.com.catera.AnnouncementDetailsActivity"
+    tools:showIn="@layout/activity_announcement_details"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Organizer"
+                android:background="@drawable/announcement_details_header"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:textSize="12dp"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Organizer name"
+                android:id="@+id/ann_details_organizer"
+                android:padding="8dp"
+                android:textColor="#000000"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Posted On"
+                android:background="@drawable/announcement_details_header"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:textSize="12dp"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="11-16"
+                android:id="@+id/ann_details_date"
+                android:padding="8dp"
+                android:textColor="#000000"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Department"
+                android:background="@drawable/announcement_details_header"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:textSize="12dp"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sample Text"
+                android:id="@+id/ann_details_department"
+                android:padding="8dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:background="@drawable/announcement_details_header"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:textSize="12dp"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sample Text"
+                android:id="@+id/ann_details_description"
+                android:padding="8dp"
+                android:textColor="#000000"/>
+
+
+            </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

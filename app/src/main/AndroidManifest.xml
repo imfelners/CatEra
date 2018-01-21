@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="catera.itp.sti.com.catera">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/nolabel"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/nolabel"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NavigationMenuActivity"
+            android:label="@string/title_activity_navigation_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".SchoolEventsActivity"
+            android:label="@string/title_activity_school_events"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
+        <activity
+            android:name=".CalendarTest"
+            android:label="@string/title_activity_calendar_test"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
+        <activity
+            android:name=".AnnouncementDetailsActivity"
+            android:label="@string/title_activity_announcement_details"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MyAccountActivity"
+            android:label="@string/title_activity_my_account"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
+    </application>
+
+</manifest>

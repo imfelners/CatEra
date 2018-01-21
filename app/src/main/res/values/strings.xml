@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CatEra</string>
+    <string name="title_activity_navigation_menu">CATERA</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_school_events">School Events</string>
+    <string name="title_activity_calendar_test">CalendarTest</string>
+
+    <string-array name="AccountType">
+        <item>Admin</item>
+        <item>Faculty</item>
+        <item>Student</item>
+    </string-array>
+    <string name="title_activity_announcement_details">Announcement Details</string>
+    <string name="title_activity_my_account">My Account</string>
+
+</resources>
