@@ -1,10 +1,8 @@
 package catera.itp.sti.com.catera;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by FELIX NERJA on 22/01/2018.
@@ -19,6 +17,7 @@ public class SchoolEvent {
     public String announce_date;
     public String announce_time;
     public String status_event;
+    public String event_color;
 
     public long GetDate()
     {
@@ -44,7 +43,9 @@ public class SchoolEvent {
         return super.toString();
     }
 
-
+    public String GetType() {
+        return event_color.substring(event_color.indexOf('(')+1, event_color.length()-1);
+    }
 
 
 ////        holidays.add("07/03/2018"); holidaysText.add(" Girl Child Week (PP 759n, s, 1996)");

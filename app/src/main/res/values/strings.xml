@@ -16,5 +16,8 @@
     </string-array>
     <string name="title_activity_announcement_details">Announcement Details</string>
     <string name="title_activity_my_account">My Account</string>
+    <string name="title_activity_message_list">Feedback</string>
+    <string name="title_activity_message">Messages</string>
+    <string name="title_activity_school_events_details">School Event</string>
 
 </resources>

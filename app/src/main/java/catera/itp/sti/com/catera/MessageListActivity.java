@@ -1,7 +1,5 @@
 package catera.itp.sti.com.catera;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -9,9 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
-import com.github.sundeepk.compactcalendarview.CompactCalendarView;
-import com.github.sundeepk.compactcalendarview.domain.Event;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,98 +21,45 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class SchoolEventsActivity extends AppCompatActivity {
+public class MessageListActivity extends AppCompatActivity {
 
-    final String colorHoliday = "#FF08FF00";
+    public static List<User> admins;
 
-    CompactCalendarView compactCalendar;
     String oldString, newString;
-    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
+
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_school_events);
+        setContentView(R.layout.activity_message_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//
-//        holidays = new ArrayList<>();
-//        holidaysText = new ArrayList<>();
-        compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
-        compactCalendar.setFirstDayOfWeek(Calendar.SUNDAY);
-        compactCalendar.setUseThreeLetterAbbreviation(true);
 
-        compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+        listView = (ListView)findViewById(R.id.lstMessageList);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDayClick(Date dateClicked) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                  List<Event> e = compactCalendar.getEvents(dateClicked);
-
-                  if (e == null)
-                      return;
-                  if (e.size() <= 0)
-                      return;
-
-                List<SchoolEvent> s = new ArrayList<SchoolEvent>();
-                for (Event i : e)
-                {
-                    s.add((SchoolEvent) (i.getData()));
-                }
-
-                SchoolEventsDetailsActivity.currentEvents = s;
-
-                Intent i = new Intent(SchoolEventsActivity.this, SchoolEventsDetailsActivity.class);
-                startActivity(i);
-
-//                Context context = getApplicationContext();
-//
-//                if (dateClicked.toString().compareTo("Fri Oct 21 00:00:00 AST 2016") == 0) {
-//                    Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
-//                }
-
-
-            }
-
-
-            @Override
-            public void onMonthScroll(Date firstDayOfNewMonth) {
-                getSupportActionBar().setTitle(dateFormatMonth.format(firstDayOfNewMonth));
             }
         });
-
 
         oldString = "";
         newString = "";
 
+        admins = new ArrayList<>();
+
         GetEvents();
-
-//        int j = 0;
-//        for (String i : holidays)
-//        {
-//            long x = StoD(i).getTime();
-//
-//            Event ev = new Event(Color.RED, x, holidaysText.get(j));
-//            compactCalendar.addEvent(ev);
-//
-//            j++;
-//        }
-
     }
 
     public void GetEvents()
     {
-        new HttpAsyncTask().execute(MainActivity.domain + "android_getevents.php");
+        new MessageListActivity.HttpAsyncTask().execute(MainActivity.domain + "android_getadmin.php");
     }
 
 
@@ -178,30 +124,32 @@ public class SchoolEventsActivity extends AppCompatActivity {
                 return;
             }
 
-            compactCalendar.removeAllEvents();
+            admins = new ArrayList<>();
+            List<String> list = new ArrayList<>();
             String[] str = result.split("#");
             for (String i : str) {
                 if (i.length() <= 0)
                     continue;
 
                 String[] str2 = i.split("/");
-                SchoolEvent n = new SchoolEvent();
-//                n.text = str2[0];
-//                n.senderDateAndTime = str2[1] + " " + str2[2];
-//                n.senderName = str2[3];
-                n.ID = Integer.valueOf(str2[1]);
-                n.event = str2[2];
-                n.description = str2[3];
-                n.organizer_name = str2[4];
-                n.department = str2[5];
-                n.announce_date = str2[6];
-                n.announce_time = str2[7];
-                n.status_event = str2[8];
-                n.event_color = str2[9];
 
-                if (n.isApproved())
-                    compactCalendar.addEvent(new Event(Color.RED, n.GetDate(), n));
+                User u = new User();
+                u.username = str2[1];
+                u.password = str2[2];
+                u.firstName = str2[3];
+                u.middleName = str2[4];
+                u.lastName = str2[5];
+                u.userType = str2[6];
+
+                String x = u.userType;
+                boolean isAdmin = u.userType.equals("admin");
+                boolean isSec = u.userType.equals("secretary");
+
+                admins.add(u);
+                list.add(u.firstName+" "+u.lastName+" ("+(isAdmin? "Principal" : "Secretary") + ")");
             }
+
+            listView.setAdapter(new ArrayAdapter<>(MessageListActivity.this, android.R.layout.simple_list_item_1, list));
 
             GetEvents();
             oldString = newString;
@@ -216,5 +164,4 @@ public class SchoolEventsActivity extends AppCompatActivity {
         boolean b = oldString.equals(newString);
         return !b;
     }
-
 }

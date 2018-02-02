@@ -63,6 +63,33 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
         </activity>
+        <activity
+            android:name=".MessageListActivity"
+            android:label="@string/title_activity_message_list"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
+        <activity
+            android:name=".MessageActivity"
+            android:label="@string/title_activity_message"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
+        <activity
+            android:name=".SchoolEventsDetailsActivity"
+            android:label="@string/title_activity_school_events_details"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
     </application>
 
 </manifest>
