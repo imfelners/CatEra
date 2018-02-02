@@ -69,10 +69,21 @@ public class NavigationMenuActivity extends AppCompatActivity
             }
         });
 
+        btnReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowMessage("");
+                MainActivity.reminderMode = true;
+                Intent i = new Intent(NavigationMenuActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
         btnAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ShowMessage("");
+                MainActivity.reminderMode = false;
                 Intent i = new Intent(NavigationMenuActivity.this, MainActivity.class);
                 startActivity(i);
             }
@@ -82,6 +93,7 @@ public class NavigationMenuActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 ShowMessage("");
+                MainActivity.reminderMode = true;
                 Intent i = new Intent(NavigationMenuActivity.this, SchoolEventsActivity.class);
                 startActivity(i);
             }

@@ -1,11 +1,8 @@
 package catera.itp.sti.com.catera;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 public class AnnouncementDetailsActivity extends AppCompatActivity {
@@ -21,6 +18,8 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(currentAnnouncement.announcement);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ((TextView)findViewById(R.id.ann_details_dept_title)).setText(MainActivity.reminderMode? "Inclusion" : "Department");
 
         ((TextView)findViewById(R.id.ann_details_organizer)).setText(currentAnnouncement.organizer);
         ((TextView)findViewById(R.id.ann_details_date)).setText(currentAnnouncement.GetDateFormatted() + " " + currentAnnouncement.time);

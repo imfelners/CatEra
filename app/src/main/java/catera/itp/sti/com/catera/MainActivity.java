@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String domain = "http://192.168.56.1/newback/backend/";
 
+    public static boolean reminderMode;
+
     ListView listView;
 
     String oldString, newString;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void GetAnnouncements()
     {
-        new HttpAsyncTask().execute(domain + "android_getannouncement.php");
+        new HttpAsyncTask().execute(domain + (reminderMode? "android_getreminders.php" : "android_getannouncement.php"));
     }
 
     public static String GET(String url){
@@ -155,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 Notification notification = new Notification.Builder(getApplicationContext())
                         .setContentTitle("CATERA")
-                        .setContentText("There are new announcements")
+                        .setContentText("There are new " + (reminderMode? "reminders" : "announcements"))
                         .setSmallIcon(R.drawable.nolabel)
                         //.setContentIntent(pIntent)
                         .setAutoCancel(true).build();
@@ -178,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
             oldString = newString;
         }
     }
-
 
     boolean CanUpdate(String str)
     {

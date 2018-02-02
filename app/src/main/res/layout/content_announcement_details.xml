@@ -64,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Department"
+                android:id="@+id/ann_details_dept_title"
                 android:background="@drawable/announcement_details_header"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="true"
