@@ -1,5 +1,7 @@
 package catera.itp.sti.com.catera;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -178,6 +180,9 @@ public class SchoolEventsActivity extends AppCompatActivity {
                 return;
             }
 
+            boolean newAnnouncement = false;
+
+
             compactCalendar.removeAllEvents();
             String[] str = result.split("#");
             for (String i : str) {
@@ -199,8 +204,25 @@ public class SchoolEventsActivity extends AppCompatActivity {
                 n.status_event = str2[8];
                 n.event_color = str2[9];
 
-                if (n.isApproved())
+                if (n.isApproved()) {
                     compactCalendar.addEvent(new Event(Color.RED, n.GetDate(), n));
+                    newAnnouncement = true;
+                }
+            }
+
+
+
+            if (oldString.length() > 0 && newAnnouncement) {
+                SplashScreen.notificationID += 1;
+                NotificationManager notificationManager =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                Notification notification = new Notification.Builder(getApplicationContext())
+                        .setContentTitle("CATERA")
+                        .setContentText("There are new school events")
+                        //.setSmallIcon(R.drawable.nolabel)
+                        //.setContentIntent(pIntent)
+                        .setAutoCancel(true).build();
+                notificationManager.notify(SplashScreen.notificationID, notification);
             }
 
             GetEvents();

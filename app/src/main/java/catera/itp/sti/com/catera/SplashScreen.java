@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
 
+    public static int notificationID = 5;
     /** Duration of wait **/
     private final int SPLASH_DISPLAY_LENGTH = 3000;
 

@@ -1,5 +1,7 @@
 package catera.itp.sti.com.catera;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -112,7 +114,12 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
+
+
             ArrayList<Announcement> announcementList = new ArrayList<>();
+
+
+            boolean newAnnouncement = false;
 
             String[] str = result.split("#");
             for (String i : str) {
@@ -134,8 +141,25 @@ public class MainActivity extends AppCompatActivity {
                 n.time = str2[7];
                 n.status = str2[8];
 
-                if (n.isApproved())
+                if (n.isApproved()) {
                     announcementList.add(n);
+                    newAnnouncement = true;
+                }
+            }
+
+
+
+            if (oldString.length() > 0 && newAnnouncement) {
+                SplashScreen.notificationID += 1;
+                NotificationManager notificationManager =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                Notification notification = new Notification.Builder(getApplicationContext())
+                        .setContentTitle("CATERA")
+                        .setContentText("There are new announcements")
+                        .setSmallIcon(R.drawable.nolabel)
+                        //.setContentIntent(pIntent)
+                        .setAutoCancel(true).build();
+                notificationManager.notify(SplashScreen.notificationID, notification);
             }
 
             listView.setAdapter(new AnnouncementItemAdapter(MainActivity.this, R.layout.announcement_item_layout, announcementList));
