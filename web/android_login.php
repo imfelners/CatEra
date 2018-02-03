@@ -11,13 +11,14 @@
     $usrsCount=$query->num_rows;
 
     while($row=mysqli_fetch_array($query)){
-        $id = $row[$type == "admin"? "employee_ID" : ($type == "faculty"? "employee_id" : "student_number")];
+        $id = $row["ID"];
+        $empid = $row[$type == "admin"? "employee_ID" : ($type == "faculty"? "employee_id" : "student_number")];
         $pw = $row["password"];
         $fn = $row["first_name"];
         $mn = $row["middle_name"];
         $ln = $row["last_name"];
 
-        $container .= "#".$separator."$id".$separator."$pw".$separator."$fn".$separator."$mn".$separator."$ln".$separator."";
+        $container .= "#".$separator."$id".$separator."$empid".$separator."$pw".$separator."$fn".$separator."$mn".$separator."$ln".$separator."";
     }
 
     echo  $container;  
