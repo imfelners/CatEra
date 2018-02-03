@@ -163,8 +163,8 @@ public class LoginActivity extends AppCompatActivity {
                 String[] str2 = i.split("/");
 
                 String username, password;
-                username = str2[1];
-                password = str2[2];
+                username = str2[2];
+                password = str2[3];
 
                 if (username.equals(u))
                 {
@@ -172,12 +172,12 @@ public class LoginActivity extends AppCompatActivity {
                     if (password.equals(p))
                     {
                         currentUser = new User();
-                        currentUser.ID = Integer.parseInt(str2[0]);
-                        currentUser.username = str2[1];
-                        currentUser.password = str2[2];
-                        currentUser.firstName = str2[3];
-                        currentUser.middleName = str2[4];
-                        currentUser.lastName = str2[5];
+                        currentUser.ID = Integer.parseInt(str2[1]);
+                        currentUser.username = str2[2];
+                        currentUser.password = str2[3];
+                        currentUser.firstName = str2[4];
+                        currentUser.middleName = str2[5];
+                        currentUser.lastName = str2[6];
                         currentUser.userType = ((Spinner)findViewById(R.id.spinner)).getSelectedItem().toString();
 
                         Toast.makeText(LoginActivity.this, "Welcome "+currentUser.firstName+"!", Toast.LENGTH_SHORT).show();

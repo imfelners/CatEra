@@ -53,6 +53,7 @@ public class SchoolEventsActivity extends AppCompatActivity {
         compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendar.setFirstDayOfWeek(Calendar.SUNDAY);
         compactCalendar.setUseThreeLetterAbbreviation(true);
+        compactCalendar.setEventIndicatorStyle(CompactCalendarView.FILL_LARGE_INDICATOR);
 
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -204,8 +205,9 @@ public class SchoolEventsActivity extends AppCompatActivity {
                 n.status_event = str2[8];
                 n.event_color = str2[9];
 
+
                 if (n.isApproved()) {
-                    compactCalendar.addEvent(new Event(Color.RED, n.GetDate(), n));
+                    compactCalendar.addEvent(new Event(n.GetColor(), n.GetDate(), n));
                     newAnnouncement = true;
                 }
             }

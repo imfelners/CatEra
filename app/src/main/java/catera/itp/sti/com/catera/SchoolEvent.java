@@ -1,5 +1,7 @@
 package catera.itp.sti.com.catera;
 
+import android.graphics.Color;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,6 +47,25 @@ public class SchoolEvent {
 
     public String GetType() {
         return event_color.substring(event_color.indexOf('(')+1, event_color.length()-1);
+    }
+
+    public int GetColor()
+    {
+        String str = event_color.substring(0, event_color.indexOf('(')).toLowerCase().trim();
+
+        switch (str)
+        {
+            case "red":
+                return Color.RED;
+            case "blue":
+                return Color.BLUE;
+            case "green":
+                return Color.GREEN;
+            case "violet":
+                return Color.rgb(130, 10, 134);
+        }
+
+        return Color.RED;
     }
 
 

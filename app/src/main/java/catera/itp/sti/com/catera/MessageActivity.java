@@ -56,7 +56,7 @@ public class MessageActivity extends AppCompatActivity {
 
     public void GetEvents()
     {
-        new MessageActivity.HttpAsyncTask().execute(MainActivity.domain + "android_getmessages.php?senderID="+LoginActivity.currentUser.ID+"&receiverID="+recipient.ID+".php");
+        new MessageActivity.HttpAsyncTask().execute(MainActivity.domain + "android_getmessages.php?senderID="+LoginActivity.currentUser.ID+"&receiverID="+recipient.ID);
     }
 
     public static String GET(String url){
@@ -120,6 +120,8 @@ public class MessageActivity extends AppCompatActivity {
                 return;
             }
 
+            Log.d("---result", result);
+
             messages = new ArrayList<>();
             List<String> list = new ArrayList<>();
             String[] str = result.split("#");
@@ -129,15 +131,18 @@ public class MessageActivity extends AppCompatActivity {
 
                 String[] str2 = i.split("/");
 
+                Log.d("---result", i);
+
                 Message m = new Message();
-                m.ID  = Integer.parseInt(str2[0]);
-                m.senderID = Integer.parseInt(str2[1]);
-                m.receiverID = Integer.parseInt(str[2]);
-                m.message = str[3];
-                m.timestamp = str[4];
-                m.fromAdmin = Integer.parseInt(str[5]);
+                m.ID  = Integer.parseInt(str2[1]);
+                m.senderID = Integer.parseInt(str2[2]);
+                m.receiverID = Integer.parseInt(str2[3]);
+                m.message = str2[4];
+                m.timestamp = str2[5];
+                m.fromAdmin = Integer.parseInt(str2[6]);
 
                 list.add(m.message);
+                messages.add(m);
             }
 
             listView.setAdapter(new ArrayAdapter<>(MessageActivity.this, android.R.layout.simple_list_item_1, list));

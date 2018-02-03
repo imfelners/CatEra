@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String domain = "http://192.168.8.100/CATERA/";
+    public static final String domain = "http://192.168.1.15/CATERA/";
 
     public static boolean reminderMode;
 
