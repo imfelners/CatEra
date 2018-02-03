@@ -1,5 +1,6 @@
 package catera.itp.sti.com.catera;
 
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -45,7 +46,9 @@ public class MessageListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                MessageActivity.recipient = admins.get(i);
+                Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -134,6 +137,7 @@ public class MessageListActivity extends AppCompatActivity {
                 String[] str2 = i.split("/");
 
                 User u = new User();
+                u.ID = Integer.parseInt(str2[0]);
                 u.username = str2[1];
                 u.password = str2[2];
                 u.firstName = str2[3];

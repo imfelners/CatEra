@@ -5,6 +5,7 @@ package catera.itp.sti.com.catera;
  */
 
 public class User {
+    public int ID;
     public String userType;
     public String username, password, firstName, middleName, lastName;
 }

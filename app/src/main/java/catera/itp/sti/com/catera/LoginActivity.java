@@ -172,6 +172,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (password.equals(p))
                     {
                         currentUser = new User();
+                        currentUser.ID = Integer.parseInt(str2[0]);
                         currentUser.username = str2[1];
                         currentUser.password = str2[2];
                         currentUser.firstName = str2[3];
