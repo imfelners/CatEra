@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 public class MessageActivity extends AppCompatActivity {
 
-    public static User receipient;
+    public static User recipient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

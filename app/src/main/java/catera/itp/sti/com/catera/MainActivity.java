@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String domain = "http://192.168.56.1/newback/backend/";
+    public static final String domain = "http://192.168.8.100/CATERA/";
 
     public static boolean reminderMode;
 
@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         InputStream inputStream = null;
         String result = "";
         try {
-
             // create HttpClient
             HttpClient httpclient = new DefaultHttpClient();
 
