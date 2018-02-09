@@ -48,7 +48,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnAnnouncement.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage("Announcement meaning");
+                ShowMessage("Announcement is a statement made to the public or to the media which gives information about something that has happened or that will happen.");
                 return true;
             }
         });
@@ -56,7 +56,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnReminders.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage("Reminders meaning");
+                ShowMessage("Something that serves as a reminder of another thing makes you think about the other thing.");
                 return true;
             }
         });
@@ -64,7 +64,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnSchoolEvents.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage("School events meaning");
+                ShowMessage(" anything that happens, especially something important or unusual");
                 return true;
             }
         });
