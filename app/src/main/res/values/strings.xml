@@ -10,7 +10,6 @@
     <string name="title_activity_calendar_test">CalendarTest</string>
 
     <string-array name="AccountType">
-        <item>Admin</item>
         <item>Faculty</item>
         <item>Student</item>
     </string-array>
