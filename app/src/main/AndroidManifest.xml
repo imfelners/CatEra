@@ -99,6 +99,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
         </activity>
+
+        <service
+            android:name=".ScheduledService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".NavigationMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="catera.itp.sti.com.catera.NavigationMenuActivity" />
+        </activity>
     </application>
 
 </manifest>

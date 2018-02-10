@@ -19,5 +19,6 @@
     <string name="title_activity_message">Messages</string>
     <string name="title_activity_school_events_details">School Event</string>
     <string name="title_activity_reminder">Reminders</string>
+    <string name="title_activity_about">About</string>
 
 </resources>

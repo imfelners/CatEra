@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String domain = "http://192.168.1.15/CATERA/";
+    public static final String domain = "http://catera2018.com/";
 
     public static boolean reminderMode;
 
@@ -150,18 +150,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            if (oldString.length() > 0 && newAnnouncement) {
-                SplashScreen.notificationID += 1;
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                Notification notification = new Notification.Builder(getApplicationContext())
-                        .setContentTitle("CATERA")
-                        .setContentText("There are new " + (reminderMode? "reminders" : "announcements"))
-                        .setSmallIcon(R.drawable.nolabel)
-                        //.setContentIntent(pIntent)
-                        .setAutoCancel(true).build();
-                notificationManager.notify(SplashScreen.notificationID, notification);
-            }
+//            if (oldString.length() > 0 && newAnnouncement) {
+//                SplashScreen.notificationID += 1;
+//                NotificationManager notificationManager =
+//                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//                Notification notification = new Notification.Builder(getApplicationContext())
+//                        .setContentTitle("CATERA")
+//                        .setContentText("There are new " + (reminderMode? "reminders" : "announcements"))
+//                        .setSmallIcon(R.drawable.nolabel)
+//                        //.setContentIntent(pIntent)
+//                        .setAutoCancel(true).build();
+//                notificationManager.notify(SplashScreen.notificationID, notification);
+//            }
 
             listView.setAdapter(new AnnouncementItemAdapter(MainActivity.this, R.layout.announcement_item_layout, announcementList));
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

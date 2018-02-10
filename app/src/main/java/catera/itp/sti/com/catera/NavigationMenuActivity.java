@@ -48,7 +48,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnAnnouncement.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage("Announcement is a statement made to the public or to the media which gives information about something that has happened or that will happen.");
+                ShowMessage("The Announcement is about the general announcement coming from DepEd, Government, and School Admnistrator that includes class suspension due to bad weather, and holidays.");
                 return true;
             }
         });
@@ -56,7 +56,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnReminders.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage("Something that serves as a reminder of another thing makes you think about the other thing.");
+                ShowMessage("The Reminder is about posting reminders of important work or activity for the faculty and students including Meetings, Seminars, and Examination Schedule.");
                 return true;
             }
         });
@@ -64,7 +64,7 @@ public class NavigationMenuActivity extends AppCompatActivity
         btnSchoolEvents.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ShowMessage(" anything that happens, especially something important or unusual");
+                ShowMessage("The School Events are all about events around the school, and holidays throughout the year.");
                 return true;
             }
         });
@@ -130,6 +130,10 @@ public class NavigationMenuActivity extends AppCompatActivity
         }else if (id == R.id.nav_account)
         {
             Intent i = new Intent(NavigationMenuActivity.this, MyAccountActivity.class);
+            startActivity(i);
+        }else if (id == R.id.nav_about)
+        {
+            Intent i = new Intent(NavigationMenuActivity.this, AboutActivity.class);
             startActivity(i);
         }
 

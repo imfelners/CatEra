@@ -17,6 +17,11 @@
         android:title="Feedback" />
 
     <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/reminders_icon"
+        android:title="About" />
+
+    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/logout_icon"
         android:title="Log-out" />

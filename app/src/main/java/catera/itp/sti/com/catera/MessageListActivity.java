@@ -138,12 +138,12 @@ public class MessageListActivity extends AppCompatActivity {
 
                 User u = new User();
                 u.ID = Integer.parseInt(str2[1]);
-                u.username = str2[2];
-                u.password = str2[3];
-                u.firstName = str2[4];
-                u.middleName = str2[5];
-                u.lastName = str2[6];
-                u.userType = str2[7];
+                u.username = str2[1];
+                u.password = str2[2];
+                u.firstName = str2[3];
+                u.middleName = str2[4];
+                u.lastName = str2[5];
+                u.userType = str2[6];
 
                 String x = u.userType;
                 boolean isAdmin = u.userType.equals("admin");

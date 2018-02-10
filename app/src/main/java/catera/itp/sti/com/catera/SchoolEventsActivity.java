@@ -214,18 +214,18 @@ public class SchoolEventsActivity extends AppCompatActivity {
 
 
 
-            if (oldString.length() > 0 && newAnnouncement) {
-                SplashScreen.notificationID += 1;
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                Notification notification = new Notification.Builder(getApplicationContext())
-                        .setContentTitle("CATERA")
-                        .setContentText("There are new school events")
-                        //.setSmallIcon(R.drawable.nolabel)
-                        //.setContentIntent(pIntent)
-                        .setAutoCancel(true).build();
-                notificationManager.notify(SplashScreen.notificationID, notification);
-            }
+//            if (oldString.length() > 0 && newAnnouncement) {
+//                SplashScreen.notificationID += 1;
+//                NotificationManager notificationManager =
+//                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//                Notification notification = new Notification.Builder(getApplicationContext())
+//                        .setContentTitle("CATERA")
+//                        .setContentText("There are new school events")
+//                        //.setSmallIcon(R.drawable.nolabel)
+//                        //.setContentIntent(pIntent)
+//                        .setAutoCancel(true).build();
+//                notificationManager.notify(SplashScreen.notificationID, notification);
+//            }
 
             GetEvents();
             oldString = newString;

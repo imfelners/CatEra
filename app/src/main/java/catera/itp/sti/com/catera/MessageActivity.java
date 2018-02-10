@@ -32,7 +32,7 @@ public class MessageActivity extends AppCompatActivity {
     Button button;
     EditText editText;
 
-    List<Message> messages;
+    ArrayList<Message> messages;
     String oldString, newString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,8 @@ public class MessageActivity extends AppCompatActivity {
         oldString = "";
         newString = "";
         GetEvents();
+
+        Log.d("querymessage", MainActivity.domain + "android_getmessages.php?senderID="+LoginActivity.currentUser.ID+"&receiverID="+recipient.ID);
     }
 
     public void GetEvents()
@@ -145,7 +147,7 @@ public class MessageActivity extends AppCompatActivity {
                 messages.add(m);
             }
 
-            listView.setAdapter(new ArrayAdapter<>(MessageActivity.this, android.R.layout.simple_list_item_1, list));
+            listView.setAdapter(new MessageListAdapter(MessageActivity.this, R.layout.layout_message, messages));
 
             GetEvents();
             oldString = newString;

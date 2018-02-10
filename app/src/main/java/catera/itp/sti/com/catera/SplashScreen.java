@@ -1,5 +1,6 @@
 package catera.itp.sti.com.catera;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,10 @@ public class SplashScreen extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash_screen);
+
+        Context context = getApplicationContext();
+        Intent i= new Intent(context, ScheduledService.class);
+        context.startService(i);
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
