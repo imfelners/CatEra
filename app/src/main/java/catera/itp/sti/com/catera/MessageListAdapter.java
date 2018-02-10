@@ -39,8 +39,8 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
         Message m = list.get(position);
 
         ((TextView) v.findViewById(R.id.txtMessage)).setText(m.message);
-        (v.findViewById(R.id.spaceReceiver)).setVisibility(m.fromAdmin == 0? View.GONE : View.VISIBLE);
-        (v.findViewById(R.id.spaceReceiver)).setVisibility(m.fromAdmin == 1? View.GONE : View.VISIBLE);
+        (v.findViewById(R.id.spaceReceiver)).setVisibility(m.senderType == 1? View.GONE : View.VISIBLE);
+        (v.findViewById(R.id.spaceReceiver)).setVisibility(m.senderType == 0? View.GONE : View.VISIBLE);
 
         return v;
 

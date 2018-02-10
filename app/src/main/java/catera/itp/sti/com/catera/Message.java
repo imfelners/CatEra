@@ -5,10 +5,8 @@ package catera.itp.sti.com.catera;
  */
 
 public class Message {
-    public int ID;
     public int senderID;
-    public int receiverID;
+    public int senderType; //0 admin 1 student/faculty
     public String message;
-    public String timestamp;
-    public int fromAdmin;
+    public String created_at;
 }

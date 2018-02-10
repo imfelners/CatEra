@@ -13,8 +13,8 @@
             android:id="@+id/spaceReceiver"
             android:layout_width="0dp"
             android:layout_height="12dp"
-            android:layout_weight="0.3"
-            android:visibility="gone"/>
+            android:layout_weight="2.5"
+            android:visibility="visible" />
 
         <TextView
             android:layout_width="0dp"
@@ -28,7 +28,7 @@
             android:id="@+id/spaceSender"
             android:layout_width="0dp"
             android:layout_height="12dp"
-            android:layout_weight="0.3"/>
+            android:layout_weight="1"/>
     </LinearLayout>
     
     <Space
